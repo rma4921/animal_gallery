@@ -17,7 +17,7 @@ closeBtn.addEventListener("click", function(){
     popup.style.display = "none";
 });*/
 document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && popup.style.display === 'block') {
+    if (e.key === 'Escape' && popup.style.display === 'flex') {
         popup.style.display = 'none';
     }
 });
