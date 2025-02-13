@@ -29,7 +29,7 @@
 #intro{
     font-size: 21px;
     font-weight: 300;
-    //text-align: center;
+    /*text-align: center;*/
     line-height: 1.8;
 }
 #intro_img{
@@ -39,14 +39,48 @@
     margin-right: 1rem;
     border-radius: 360px;
 }
-.imgBox img {
+.imgBox img{
     margin-left: 80px;
     margin-right: 80px;
     margin-bottom: 30px;
+    width: 150px;
+    height: 120px;
+    cursor: pointer;
 }
-.popup {
+.popup{
     display: none;
+    position: fixed;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
+    z-index: 10;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
 }
+#cancel{
+    text-decoration-line: line-through;
+}
+.popupContent {
+    position: relative;
+    width: 70%;
+    height: 80%;
+    background-color:white;
+}
+#popupImg{
+    width: 100%;
+    height: 100%;
+}
+#closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    background-color: rgba(0,0,0,0.3);
+    cursor: pointer;
+    font-weight: bold;
+}
+/*window size: height: 513 width: 887 구현 다하면 테스트 해보기*/
