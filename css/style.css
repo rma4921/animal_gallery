@@ -1,3 +1,6 @@
+#cancel{
+    text-decoration-line: line-through;
+}
 .introBox{
     background-color: #A6E8C9;
     height: 400px;
@@ -29,7 +32,6 @@
 #intro{
     font-size: 21px;
     font-weight: 300;
-    /*text-align: center;*/
     line-height: 1.8;
 }
 #intro_img{
@@ -39,15 +41,9 @@
     margin-right: 1rem;
     border-radius: 360px;
 }
-.imgBox img{
-    margin-left: 80px;
-    margin-right: 80px;
-    margin-bottom: 30px;
-    width: 150px;
-    height: 120px;
-    cursor: pointer;
-}
-.popup{
+.modal{
+    top: 0;
+    left: 0;
     display: none;
     position: fixed;
     width: 100%;
@@ -55,27 +51,14 @@
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     z-index: 10;
-    top: 0;
-    left: 0;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
 }
-#cancel{
-    text-decoration-line: line-through;
-}
-.popupContent {
-    position: relative;
-    width: 50%;
-    height: 80%;
+.modalHeader {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-#popupImg{
-    width: 80%;
-    height: 100%;
-    /*object-fit: contain;*/
+    padding: 1rem;
+    border-bottom: 1px solid black;
 }
 #closeBtn {
     position: absolute;
@@ -86,6 +69,34 @@
     background-color: rgba(0,0,0,0.3);
     cursor: pointer;
     font-weight: bold;
+}
+.modalContent {
+    position: relative;
+    width: 60%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+#modalTitle {
+    margin: 0;
+    font-size: 1.25rem;
+    color: black;
+}
+.modalBody {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#modalImg{
+    width: 70%;
+    height: 80%;
+    object-fit: contain;
+}
+.modal.show{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .searchBox {
     padding: 10px;
@@ -98,5 +109,13 @@
     border: 2px solid #A6E8C9;
     border-radius: 10px;
     outline: #00ffd8;
+}
+.imgBox img{
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 30px;
+    width: 150px;
+    height: 120px;
+    cursor: pointer;
 }
 /*window size: height: 513 width: 887 구현 다하면 테스트 해보기*/
