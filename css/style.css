@@ -1,3 +1,27 @@
+.darkMode {
+    background-color: black;
+    color: white;
+}
+.darkMode .introBox {
+    background-color: #333;
+}
+.darkMode .imgBox {
+    background-color: #444;
+}
+.darkMode #searchInput {
+    background-color: #555;
+    color: white;
+    border-color: #00ffd8;
+}
+.darkMode #searchInput::placeholder {
+    color: white;
+}
+.darkMode #modalTitle{
+    color: white;
+}
+.darkMode .modalHeader{
+    border-bottom: 1px solid white;
+}
 #cancel{
     text-decoration-line: line-through;
 }
@@ -118,4 +142,5 @@
     height: 120px;
     cursor: pointer;
 }
+
 /*window size: height: 513 width: 887 구현 다하면 테스트 해보기*/
