@@ -1,4 +1,4 @@
-<!DOCTYPE html> <!--소개글 및 취소선 추가 intro 이미지 alt 속성 추가-->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,30 +43,43 @@
         <input type="text" id="searchInput" placeholder="동물 이름으로 검색하기" alt="동물 검색기">
     </div>
     <div class = "imgBox">
-        <img src="../img/animal01.jpg" alt="고양이 cat">
-        <img src="../img/animal02.png" alt="라쿤 raccoon">
-        <img src="../img/animal03.png" alt="앵무새 parrot">
-        <img src="../img/animal04.png" alt="사슴 deer">
-        <img src="../img/animal05.png" alt="백호 호랑이 tiger white tiger">
-        <img src="../img/animal06.png" alt="햄스터 hamster">
-        <img src="../img/animal07.png" alt="거북이 turtle">
-        <img src="../img/animal08.png" alt="사자 lion">
-        <img src="../img/animal09.png" alt="뱀 snake">
-        <img src="../img/animal10.png" alt="개 dog">
-        <img src="../img/animal11.png" alt="토끼 rabbit">
-        <img src="../img/animal12.png" alt="라쿤 raccoon">
-        <img src="../img/animal13.png" alt="미어캣 meerkat">
-        <img src="../img/animal14.png" alt="북극곰 polar bear">
-        <img src="../img/animal15.png" alt="고양이 cat">
-        <img src="../img/animal16.png" alt="원숭이 monkey">
-        <img src="../img/animal17.png" alt="판다 panda">
-        <img src="../img/animal18.png" alt="마멋 groundhog">
-        <img src="../img/animal19.png" alt="해달 sea otter">
-        <img src="../img/animal20.png" alt="수달 otter">
-        <img src="../img/animal21.png" alt="쿼카 quokka">
-        <img src="../img/animal22.jpg" alt="레서판다 red panda">
-        <img src="../img/animal23.png" alt="개 리트리버 dog retriever">
-        <img src="../img/animal24.png" alt="코알라 koala">
+        <div class="imgBoxHeader">
+            <div class="filterButtons">
+                <button class="filterBtn" data-category="all">전체</button>
+                <button class="filterBtn" data-category="포유류">포유류</button>
+                <button class="filterBtn" data-category="파충류">파충류</button>
+                <button class="filterBtn" data-category="어류">어류</button>
+                <button class="filterBtn" data-category="조류">조류</button>
+                <button class="filterBtn" data-category="양서류">양서류</button>
+                <button class="filterBtn" data-category="원구류">원구류</button>
+            </div>
+        </div>
+        <div class="imgContainer">
+            <img src="../img/animal01.jpg" alt="고양이 cat 포유류">
+            <img src="../img/animal02.png" alt="라쿤 raccoon 포유류">
+            <img src="../img/animal03.png" alt="앵무새 parrot 조류">
+            <img src="../img/animal04.png" alt="사슴 deer 포유류">
+            <img src="../img/animal05.png" alt="백호 호랑이 tiger white 포유류">
+            <img src="../img/animal06.png" alt="햄스터 hamster 포유류">
+            <img src="../img/animal07.png" alt="거북이 turtle 파충류">
+            <img src="../img/animal08.png" alt="사자 lion 포유류">
+            <img src="../img/animal09.png" alt="뱀 snake 파충류">
+            <img src="../img/animal10.png" alt="개 dog 포유류">
+            <img src="../img/animal11.png" alt="토끼 rabbit 포유류">
+            <img src="../img/animal12.png" alt="라쿤 raccoon 포유류">
+            <img src="../img/animal13.png" alt="미어캣 meerkat 포유류">
+            <img src="../img/animal14.png" alt="북극곰 polar bear 포유류">
+            <img src="../img/animal15.png" alt="고양이 cat 포유류">
+            <img src="../img/animal16.png" alt="원숭이 monkey 포유류">
+            <img src="../img/animal17.png" alt="판다 panda 포유류">
+            <img src="../img/animal18.png" alt="마멋 groundhog 포유류">
+            <img src="../img/animal19.png" alt="해달 sea otter 포유류">
+            <img src="../img/animal20.png" alt="수달 otter 포유류">
+            <img src="../img/animal21.png" alt="쿼카 quokka 포유류">
+            <img src="../img/animal22.jpg" alt="레서판다 red panda 포유류">
+            <img src="../img/animal23.png" alt="개 리트리버 dog retriever 포유류">
+            <img src="../img/animal24.png" alt="코알라 koala 포유류">
+        </div>
     </div>
 <script src="../javascript/script.js"></script>
 </body>
