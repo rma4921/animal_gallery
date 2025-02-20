@@ -8,6 +8,7 @@ const searchInput = document.getElementById("searchInput");
 const themeToggle = document.getElementById("themeToggle");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+const filterButtons = document.querySelectorAll(".filterBtn");
 
 function openModal(imgIndex){
     currentIndex = imgIndex;
@@ -78,4 +79,17 @@ nextBtn.addEventListener("click", function (){
     }
     modalImg.src = imgList[currentIndex].src;
     modalImg.alt = imgList[currentIndex].alt;
+});
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", function(){
+        const category = this.getAttribute("data-category");
+        imgList.forEach(img => {
+            if(category === "all"){
+                img.style.display = "inline";
+            } else{
+                img.style.display = img.alt.includes(category) ? "inline" : "none";
+            }
+        });
+    });
 });
