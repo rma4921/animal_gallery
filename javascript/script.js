@@ -1,14 +1,15 @@
-let currentIndex = 0;
-const imgList = document.querySelectorAll(".imgBox img");
 const modal = document.getElementById("parentModal");
 const modalTitle = document.getElementById("modalTitle");
-const closeBtn = document.getElementById("closeBtn");
 const modalImg = document.getElementById("modalImg");
-const searchInput = document.getElementById("searchInput");
-const themeToggle = document.getElementById("themeToggle");
+const closeBtn = document.getElementById("closeBtn");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+const searchInput = document.getElementById("searchInput");
+const themeToggle = document.getElementById("themeToggle");
+const imgList = document.querySelectorAll(".imgBox img");
 const filterButtons = document.querySelectorAll(".filterBtn");
+
+let currentIndex = 0;
 
 function openModal(imgIndex){
     currentIndex = imgIndex;
@@ -17,6 +18,7 @@ function openModal(imgIndex){
     modalImg.alt = imgList[imgIndex].alt;
     modal.classList.add("show");
 }
+
 function closeModal(){
     modal.classList.remove("show");
     document.body.style.overflow = 'auto';
@@ -28,9 +30,7 @@ imgList.forEach((img, index) => {
     });
 });
 
-closeBtn.addEventListener("click", function(){
-    closeModal();
-});
+closeBtn.addEventListener("click", closeModal);
 
 modal.addEventListener("click", function(background){
     if(background.target === modal){
@@ -41,23 +41,6 @@ modal.addEventListener("click", function(background){
 document.addEventListener("keydown", function(esc) {
     if(esc.key === "Escape" && modal.classList.contains("show")){
         closeModal();
-    }
-});
-
-searchInput.addEventListener("input", function(){
-    const filter = this.value.toLowerCase();
-    imgList.forEach(img => {
-        let altText = img.alt.toLowerCase();
-        img.style.display = altText.includes(filter) ? "inline" : "none";
-    });
-});
-
-themeToggle.addEventListener("click", function () {
-    document.body.classList.toggle("darkMode");
-    if(document.body.classList.contains("darkMode")){
-        themeToggle.textContent = "Light Mode";
-    } else{
-        themeToggle.textContent = "Dark Mode";
     }
 });
 
@@ -79,6 +62,23 @@ nextBtn.addEventListener("click", function (){
     }
     modalImg.src = imgList[currentIndex].src;
     modalImg.alt = imgList[currentIndex].alt;
+});
+
+searchInput.addEventListener("input", function(){
+    const filter = this.value.toLowerCase();
+    imgList.forEach(img => {
+        let altText = img.alt.toLowerCase();
+        img.style.display = altText.includes(filter) ? "inline" : "none";
+    });
+});
+
+themeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("darkMode");
+    if(document.body.classList.contains("darkMode")){
+        themeToggle.textContent = "Light Mode";
+    } else{
+        themeToggle.textContent = "Dark Mode";
+    }
 });
 
 filterButtons.forEach(button => {
