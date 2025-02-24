@@ -185,7 +185,7 @@
     display: flex;
     justify-content: center;
     padding: 10px;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     margin-bottom: 10px;
     background-color: #D0D0D0;
 }
