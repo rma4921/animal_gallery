@@ -6,6 +6,7 @@ const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const searchInput = document.getElementById("searchInput");
 const themeToggle = document.getElementById("themeToggle");
+const imgBoxes = document.querySelectorAll(".imgContainer .imgBox");
 const imgList = document.querySelectorAll(".imgBox img");
 const filterButtons = document.querySelectorAll(".filterBtn");
 
@@ -66,9 +67,10 @@ nextBtn.addEventListener("click", function (){
 
 searchInput.addEventListener("input", function(){
     const filter = this.value.toLowerCase();
-    imgList.forEach(img => {
+    imgBoxes.forEach(box => {
+        let img = box.querySelector("img");
         let altText = img.alt.toLowerCase();
-        img.style.display = altText.includes(filter) ? "inline" : "none";
+        box.style.display = altText.includes(filter) ? "inline" : "none";
     });
 });
 
@@ -83,12 +85,13 @@ themeToggle.addEventListener("click", function () {
 
 filterButtons.forEach(button => {
     button.addEventListener("click", function(){
-        const category = this.getAttribute("data-category");
-        imgList.forEach(img => {
+        let category = this.getAttribute("data-category");
+        imgBoxes.forEach(box => {
+        let img = box.querySelector("img");
             if(category === "all"){
-                img.style.display = "inline";
+                box.style.display = "block";
             } else{
-                img.style.display = img.alt.includes(category) ? "inline" : "none";
+                box.style.display = img.alt.includes(category) ? "block" : "none";
             }
         });
     });
