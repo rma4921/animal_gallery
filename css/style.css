@@ -10,6 +10,9 @@
     background-color: black;
     color: white;
 }
+#themeToggle{
+    cursor: pointer;
+}
 #themeToggle:hover{
     background-color: #A6E8C9;
     color: white;
@@ -181,6 +184,9 @@
     border-width: 1px;
     object-fit: cover;
 }
+.darkMode .mainBody{
+    background-color: #444;
+}
 .imgBoxHeader {
     display: flex;
     justify-content: center;
@@ -189,11 +195,15 @@
     margin-bottom: 10px;
     background-color: #D0D0D0;
 }
+.darkMode .imgBoxHeader{
+    background-color: #555;
+}
 .filterBtn{
     margin: 0px 10px 0px 10px;
     background-color: skyblue;
     font-size: 25px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .filterBtn:hover{
     background-color: rgb(120, 49, 20);
