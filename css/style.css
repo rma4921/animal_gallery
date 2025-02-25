@@ -1,5 +1,5 @@
 #head{
-    font-style: inter;
+    font-family: inter;
     font-size: 30px;
     padding-left: 10px;
     padding-right: 10px;
@@ -233,4 +233,3 @@
    cursor: pointer;
    object-fit: cover;
 }
-/*window size: height: 513 width: 887 구현 다하면 테스트 해보기*/
