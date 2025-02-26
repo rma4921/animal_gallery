@@ -241,6 +241,9 @@
 .darkMode .filterBtn{
     background-color: #00ffd8;
 }
+.darkMode .filterBtn.active{
+    background-color: #009F80;
+}
 .darkMode .imgContainer{
     background-color: #444;
 }
