@@ -11,6 +11,8 @@ const imgList = document.querySelectorAll(".imgBox img");
 const filterButtons = document.querySelectorAll(".filterBtn");
 
 let currentIndex = 0;
+let currentCategory = "all";
+let searchContent = "";
 
 function openModal(imgIndex){
     currentIndex = imgIndex;
@@ -23,6 +25,18 @@ function openModal(imgIndex){
 function closeModal(){
     modal.classList.remove("show");
     document.body.style.overflow = 'auto';
+}
+
+function filtering(){
+    imgBoxes.forEach(box => {
+        let img = box.querySelector("img");
+        let altText = img.alt.toLowerCase();
+        if (altText.includes(searchContent) && img.alt.includes(currentCategory)){
+            box.style.display = "block";
+        } else{
+            box.style.display = "none";
+        }
+    });
 }
 
 imgList.forEach((img, index) => {
@@ -64,16 +78,10 @@ nextBtn.addEventListener("click", function (){
     modalImg.src = imgList[currentIndex].src;
     modalImg.alt = imgList[currentIndex].alt;
 });
-
 searchInput.addEventListener("input", function(){
-    const filter = this.value.toLowerCase();
-    imgBoxes.forEach(box => {
-        let img = box.querySelector("img");
-        let altText = img.alt.toLowerCase();
-        box.style.display = altText.includes(filter) ? "inline" : "none";
-    });
+    searchContent = this.value.toLowerCase();
+    filtering();
 });
-
 themeToggle.addEventListener("click", function () {
     document.body.classList.toggle("darkMode");
     if(document.body.classList.contains("darkMode")){
@@ -82,23 +90,14 @@ themeToggle.addEventListener("click", function () {
         themeToggle.textContent = "Dark Mode";
     }
 });
-
 filterButtons.forEach(button => {
     button.addEventListener("click", function(){
         let activeButton = document.querySelector(".filterBtn.active");
+        currentCategory = this.getAttribute("data-category");
         if(activeButton){
             activeButton.classList.remove("active");
         }
         this.classList.add("active");
-
-        let category = this.getAttribute("data-category");
-        imgBoxes.forEach(box => {
-        let img = box.querySelector("img");
-            if(category === "all"){
-                box.style.display = "block";
-            } else{
-                box.style.display = img.alt.includes(category) ? "block" : "none";
-            }
-        });
+        filtering();
     });
 });
