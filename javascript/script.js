@@ -31,10 +31,14 @@ function filtering(){
     imgBoxes.forEach(box => {
         let img = box.querySelector("img");
         let altText = img.alt.toLowerCase();
-        if (altText.includes(searchContent) && img.alt.includes(currentCategory)){
-            box.style.display = "block";
-        } else{
-            box.style.display = "none";
+        if(currentCategory === "all") {
+            box.style.display = altText.includes(searchContent) ? "block" : "none";
+        } else {
+            if(altText.includes(searchContent) && altText.includes(currentCategory)){
+                box.style.display = "block";
+            } else {
+                box.style.display = "none";
+            }
         }
     });
 }
