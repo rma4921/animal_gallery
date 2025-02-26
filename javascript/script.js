@@ -78,10 +78,12 @@ nextBtn.addEventListener("click", function (){
     modalImg.src = imgList[currentIndex].src;
     modalImg.alt = imgList[currentIndex].alt;
 });
+
 searchInput.addEventListener("input", function(){
     searchContent = this.value.toLowerCase();
     filtering();
 });
+
 themeToggle.addEventListener("click", function () {
     document.body.classList.toggle("darkMode");
     if(document.body.classList.contains("darkMode")){
@@ -90,6 +92,7 @@ themeToggle.addEventListener("click", function () {
         themeToggle.textContent = "Dark Mode";
     }
 });
+
 filterButtons.forEach(button => {
     button.addEventListener("click", function(){
         let activeButton = document.querySelector(".filterBtn.active");
