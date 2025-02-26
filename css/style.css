@@ -161,6 +161,9 @@
 .filterBtn:hover{
     background-color: rgb(120, 49, 20);
 }
+.filterBtn.active{
+    background-color: #2d94d0;
+}
 #cancel{
     text-decoration-line: line-through;
 }
