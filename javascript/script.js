@@ -85,6 +85,12 @@ themeToggle.addEventListener("click", function () {
 
 filterButtons.forEach(button => {
     button.addEventListener("click", function(){
+        let activeButton = document.querySelector(".filterBtn.active");
+        if(activeButton){
+            activeButton.classList.remove("active");
+        }
+        this.classList.add("active");
+
         let category = this.getAttribute("data-category");
         imgBoxes.forEach(box => {
         let img = box.querySelector("img");
