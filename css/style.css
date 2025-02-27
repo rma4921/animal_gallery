@@ -11,7 +11,7 @@
 }
 #themeToggle:hover{
     background-color: #A6E8C9;
-    color: white;
+    font-weight: bold;
 }
 .introBox{
     background-color: #A6E8C9;
