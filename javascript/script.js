@@ -13,28 +13,38 @@ const filterButtons = document.querySelectorAll(".filterBtn");
 let currentIndex = 0;
 let currentCategory = "all";
 let searchContent = "";
+let visibleImages = [];
 
-function openModal(imgIndex){
-    currentIndex = imgIndex;
+function updateVisibleImages() {
+    visibleImages = [];
+    imgBoxes.forEach((box, index) => {
+        if (box.style.display !== "none") {
+            visibleImages.push(index);
+        }
+    });
+}
+
+function openModal(imgIndex) {
+    currentIndex = visibleImages.indexOf(imgIndex);
     document.body.style.overflow = 'hidden';
     modalImg.src = imgList[imgIndex].src;
     modalImg.alt = imgList[imgIndex].alt;
     modal.classList.add("show");
 }
 
-function closeModal(){
+function closeModal() {
     modal.classList.remove("show");
     document.body.style.overflow = 'auto';
 }
 
-function filtering(){
+function filtering() {
     imgBoxes.forEach(box => {
         let img = box.querySelector("img");
         let altText = img.alt.toLowerCase();
-        if(currentCategory === "all") {
+        if (currentCategory === "all") {
             box.style.display = altText.includes(searchContent) ? "block" : "none";
         } else {
-            if(altText.includes(searchContent) && altText.includes(currentCategory)){
+            if (altText.includes(searchContent) && altText.includes(currentCategory)) {
                 box.style.display = "block";
             } else {
                 box.style.display = "none";
@@ -44,64 +54,67 @@ function filtering(){
 }
 
 imgList.forEach((img, index) => {
-    img.addEventListener("click", function(){
+    img.addEventListener("click", function() {
+        updateVisibleImages();
         openModal(index);
     });
 });
 
 closeBtn.addEventListener("click", closeModal);
 
-modal.addEventListener("click", function(background){
-    if(background.target === modal){
+modal.addEventListener("click", function(background) {
+    if (background.target === modal) {
         closeModal();
     }
 });
 
 document.addEventListener("keydown", function(esc) {
-    if(esc.key === "Escape" && modal.classList.contains("show")){
+    if (esc.key === "Escape" && modal.classList.contains("show")) {
         closeModal();
     }
 });
 
-prevBtn.addEventListener("click", function (){
-    if(currentIndex > 0){
+prevBtn.addEventListener("click", function() {
+    if (currentIndex > 0) {
         currentIndex--;
-    } else{
-        currentIndex = imgList.length - 1;
+    } else {
+        currentIndex = visibleImages.length - 1;
     }
-    modalImg.src = imgList[currentIndex].src;
-    modalImg.alt = imgList[currentIndex].alt;
+    let imgIndex = visibleImages[currentIndex]; // 추가
+    modalImg.src = imgList[imgIndex].src;
+    modalImg.alt = imgList[imgIndex].alt;
 });
 
-nextBtn.addEventListener("click", function (){
-    if(currentIndex < imgList.length - 1){
+nextBtn.addEventListener("click", function() {
+    if (currentIndex < visibleImages.length - 1) {
         currentIndex++;
-    } else{
+    } else {
         currentIndex = 0;
     }
-    modalImg.src = imgList[currentIndex].src;
-    modalImg.alt = imgList[currentIndex].alt;
+    let imgIndex = visibleImages[currentIndex];
+    modalImg.src = imgList[imgIndex].src;
+    modalImg.alt = imgList[imgIndex].alt;
 });
 
-searchInput.addEventListener("input", function(){
+searchInput.addEventListener("input", function() {
     searchContent = this.value.toLowerCase();
     filtering();
 });
 
-themeToggle.addEventListener("click", function () {
+themeToggle.addEventListener("click", function() {
     document.body.classList.toggle("darkMode");
-    if(document.body.classList.contains("darkMode")){
+    if (document.body.classList.contains("darkMode")) {
         themeToggle.textContent = "Light Mode";
-    } else{
+    } else {
         themeToggle.textContent = "Dark Mode";
     }
 });
 
 filterButtons.forEach(button => {
-    button.addEventListener("click", function(){
+    button.addEventListener("click", function() {
         let activeButton = document.querySelector(".filterBtn.active");
         currentCategory = this.getAttribute("data-category");
-        if(activeButton){
+        if (activeButton) {
             activeButton.classList.remove("active");
         }
         this.classList.add("active");
